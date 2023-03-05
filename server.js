@@ -8,6 +8,7 @@ const {
 } = require('./controllers/productController');
 
 const server = http.createServer((req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
   if (req.url === '/api/products' && req.method === 'GET') {
     getProducts(req, res);
   } else if (req.url.match(/\/api\/products\/\w+/) && req.method === 'GET') {
